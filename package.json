@@ -1,0 +1,22 @@
+{
+  "name": "weather-api-test",
+  "version": "1.0.0",
+  "description": "A webpage built for looking at the weather over the next 5 days",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HishEl-sayed/5DayWeather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HishEl-sayed/5DayWeather/issues"
+  },
+  "homepage": "https://github.com/HishEl-sayed/5DayWeather#readme",
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
+}

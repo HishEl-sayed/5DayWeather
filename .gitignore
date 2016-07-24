@@ -1,0 +1,14 @@
+*.orig
+/node_modules
+/inlined
+# SASS cache files
+*.scssc
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+npm-debug.log
