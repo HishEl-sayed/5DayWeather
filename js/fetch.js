@@ -8,21 +8,39 @@
     var weather = document.getElementById('weather');
 
     getData('http://api.openweathermap.org/data/2.5/weather?q=London&appid=07c942ac99d05229807385fde0045886')
-        .then(processWeatherData)
-        .catch(function (err) {
-            console.log(err);
-        });
-
-    function processWeatherData(data) {
-
-        // weather.innerHTML = JSON.stringify(data);
-        // console.log(JSON.stringify(data));
-        // console.log(data.toString());
-
-        console.log(data);
-    }
+        .then(processWeatherData(weather))
+        .catch(error);
 
 })();
+
+function processWeatherData(weather) {
+   
+    return function (data) {
+        console.log(data);
+
+        var i, item, weatherData = '';
+        var weather = data.weather;
+
+            for (i=0; i < weather.length; i++) {
+
+                var weatherData = weather[i];
+
+                for (key in weatherData) {
+
+                    if (weatherData.hasOwnProperty(key)) {
+                        var listing = (key + ': ' + weatherData[key]);
+                        console.log(listing);  
+                    }
+                }
+            }
+
+        // console.log(data.name);
+    }
+}
+
+function error(err) {
+    alert('Unable to fetch weather data, please check your internet connection and try again');
+}
 
 function getData (url) {
 
