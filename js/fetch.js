@@ -1,48 +1,8 @@
 /**
  * Created by hishamel-sayed on 24/07/2016.
  */
-(function() {
 
-    'use strict';
-
-    var weather = document.getElementById('weather');
-
-    getData('http://api.openweathermap.org/data/2.5/weather?q=London&appid=07c942ac99d05229807385fde0045886')
-        .then(processWeatherData(weather))
-        .catch(error);
-
-})();
-
-function processWeatherData(weather) {
-   
-    return function (data) {
-        console.log(data);
-
-        var i, item, weatherData = '';
-        var weather = data.weather;
-
-            for (i=0; i < weather.length; i++) {
-
-                var weatherData = weather[i];
-
-                for (key in weatherData) {
-
-                    if (weatherData.hasOwnProperty(key)) {
-                        var listing = (key + ': ' + weatherData[key]);
-                        console.log(listing);  
-                    }
-                }
-            }
-
-        // console.log(data.name);
-    }
-}
-
-function error(err) {
-    alert('Unable to fetch weather data, please check your internet connection and try again');
-}
-
-function getData (url) {
+function getData(url) {
 
     return new Promise(function (resolve, reject) {
 
@@ -52,7 +12,7 @@ function getData (url) {
         request.onreadystatechange = function() {
 
             // check if the response data send back to us
-            if(request.readyState === 4) {
+            if(request.readyState === 4) { 
                 if(request.status === 200) {
                     // update the HTML of the element
                     resolve(JSON.parse(request.responseText));
@@ -69,3 +29,64 @@ function getData (url) {
         request.send();
     });
 }
+
+function processWeatherData(weather) {
+   
+    return function(data) { //begin function to start reading the data promised back
+        // console.log(data);
+
+        var i, item, weatherData = ''; 
+        var city = data.name;
+        var weather = data.weather;
+        //set the weather returned as a variable
+        for (i=0; i < weather.length; i++) {
+            //iterate through the returned data 
+            var weatherData = weather[i];
+
+            for (key in weatherData) { //look through weather object 
+
+                if (weatherData.hasOwnProperty(key)) { // check and ignore prototype objects 
+                    var forecast = (key + ': ' + weatherData[key]);
+                    console.log(forecast); 
+                }
+            }
+
+            var temperature = data.main; // define temperature, specified as 'main' within the AJAX call
+
+            Object.keys(temperature).forEach(function(key) { //iterate through the length of the object. Prototype allows us to ignore prototype objects
+                    
+                console.log(key, temperature[key]);
+
+            });
+
+        }
+    }
+
+}
+
+function error(err) {
+    alert('Unable to fetch weather data, please check your internet connection and try again');
+}
+
+
+function appendData() {
+
+    return function() {
+        console.log(weather.forecast);
+    }
+
+}
+
+(function() {
+
+    'use strict';
+
+    getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886')
+        .then(processWeatherData(weather))
+        .then(appendData(processWeatherData))
+        .catch(error);
+
+
+
+})();
+
