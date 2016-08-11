@@ -4,56 +4,87 @@
 (function() {
 
     getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886') //grab the 
-        .then(processWeatherData(weather))
-        // .then(appendData(weather))
+        .then(function(weatherData) {
+            return processWeatherData(weatherData);
+        })
+        .then(function(processedWeatherData) {
+            return appendData(processedWeatherData);
+        })
+        .then(function(msg) {
+            console.log(msg);
+        })
         .catch(error);
+
+
+    function getData(url) {
+
+        return new Promise(function (resolve, reject) {
+
+            var request = new XMLHttpRequest();
+
+            // keep track of the request
+            request.onreadystatechange = function() {
+
+                // check if the response data send back to us
+                if(request.readyState === 4) { 
+                    if(request.status === 200) {
+                        // update the HTML of the element
+                        resolve(JSON.parse(request.responseText));
+                    } else {
+                        // otherwise display an error message
+                        reject(new Error('An error occurred during your request: ' +  request.status + ' ' + request.statusText));
+                    }
+                }
+            }
+
+            // specify the type of request
+            request.open('Get', url);
+
+            request.send();
+        });
+    }
+
+    // Data parsing
+    function processWeatherData(weather) {
+
+        console.log(weather);
+        var returnData = {
+            name: weather.name,
+            temperature: weather.main,
+            weather: weather.weather
+        }
+
+        return returnData;            
+    }
+
+    function error(err) {
+        console.log('Unable to fetch weather data, please check your internet connection and try again');
+    }
+
+    function appendData(inputData) {
+
+        console.log('name', inputData.name);
+        console.log('humidity', inputData.temperature.humidity);
+        console.log('pressure', inputData.temperature.pressure);
+
+        // var weather = inputData.weather;
+
+        //     var weatherData = weather[i];
+
+        //     Object.keys(weatherData).forEach(function(key) { //look through weather object 
+
+        //         var forecast = (key + ': ' + weatherData[key]);
+        //         // returnItem.forecast = forecast;
+        //         console.log('forecast');
+
+        //     });
+        return 'hello world';
+
+    }
 
 })();
 
-function getData(url) {
 
-    return new Promise(function (resolve, reject) {
-
-        var request = new XMLHttpRequest();
-
-        // keep track of the request
-        request.onreadystatechange = function() {
-
-            // check if the response data send back to us
-            if(request.readyState === 4) { 
-                if(request.status === 200) {
-                    // update the HTML of the element
-                    resolve(JSON.parse(request.responseText));
-                } else {
-                    // otherwise display an error message
-                    reject(new Error('An error occurred during your request: ' +  request.status + ' ' + request.statusText));
-                }
-            }
-        }
-
-        // specify the type of request
-        request.open('Get', url);
-
-        request.send();
-    });
-}
-
-// Data parsing
-function processWeatherData(weather) {
-
-    return function(weatherData) {
-        console.log(weatherData)
-        var returnData = {
-            name: weatherData.name,
-            temperature: weatherData.main,
-            weather: weatherData.weather
-        }
-        console.log(returnData);
-        appendData(returnData);
-
-        // return returnData;
-   };
-}
 
 // function _processWeatherData(weather) {
    
@@ -114,27 +145,3 @@ function processWeatherData(weather) {
 
 // }
 
-function error(err) {
-    console.log('Unable to fetch weather data, please check your internet connection and try again');
-}
-
-function appendData(inputData) {
-
-    console.log('name', inputData.name);
-    console.log('humidity', inputData.temperature.humidity);
-    console.log('pressure', inputData.temperature.pressure);
-
-    var weather = inputData.weather;
-
-        var weatherData = weather[i];
-
-        Object.keys(weatherData).forEach(function(key) { //look through weather object 
-
-            var forecast = (key + ': ' + weatherData[key]);
-            // returnItem.forecast = forecast;
-            console.log('forecast');
-
-        });
-
-
-}
