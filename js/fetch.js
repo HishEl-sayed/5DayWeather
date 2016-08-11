@@ -5,7 +5,7 @@
 
     getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886') //grab the 
         .then(processWeatherData(weather))
-        .then(appendData())
+        // .then(appendData(weather))
         .catch(error);
 
 })();
@@ -48,7 +48,10 @@ function processWeatherData(weather) {
             temperature: weatherData.main,
             weather: weatherData.weather
         }
-        return returnData;
+        console.log(returnData);
+        appendData(returnData);
+
+        // return returnData;
    };
 }
 
@@ -116,8 +119,22 @@ function error(err) {
 }
 
 function appendData(inputData) {
+
     console.log('name', inputData.name);
-    // console.log('humidity', inputData.temperature.humidity);
-    console.log('weather', inputData.weather);
+    console.log('humidity', inputData.temperature.humidity);
+    console.log('pressure', inputData.temperature.pressure);
+
+    var weather = inputData.weather;
+
+        var weatherData = weather[i];
+
+        Object.keys(weatherData).forEach(function(key) { //look through weather object 
+
+            var forecast = (key + ': ' + weatherData[key]);
+            // returnItem.forecast = forecast;
+            console.log('forecast');
+
+        });
+
 
 }
