@@ -39,6 +39,9 @@ function processWeatherData(weather) {
         var city = data.name;
         var weather = data.weather;
         //set the weather returned as a variable
+
+        weatherInfo += '<div class="weather">'
+
         for (i=0; i < weather.length; i++) {
             //iterate through the returned data 
             var weatherData = weather[i];
@@ -47,17 +50,25 @@ function processWeatherData(weather) {
 
                 if (weatherData.hasOwnProperty(key)) { // check and ignore prototype objects 
                     var forecast = (key + ': ' + weatherData[key]);
-                    console.log(forecast); 
+                    weatherInfo += forecast; 
                 }
             }
+
+        weatherInfo += '</div>';
+
+        temp += '<div class="temperature">'
 
             var temperature = data.main; // define temperature, specified as 'main' within the AJAX call
 
             Object.keys(temperature).forEach(function(key) { //iterate through the length of the object. Prototype allows us to ignore prototype objects
                     
-                console.log(key, temperature[key]);
+                var temperatureData = (key, temperature[key]);
 
             });
+
+        temp += '</div>';
+
+        return weatherInfo
 
         }
     }
