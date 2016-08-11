@@ -1,6 +1,4 @@
-/**
- * Created by hishamel-sayed on 24/07/2016.
- */
+
 
 function getData(url) {
 
@@ -40,8 +38,6 @@ function processWeatherData(weather) {
         var weather = data.weather;
         //set the weather returned as a variable
 
-        weatherInfo += '<div class="weather">'
-
         for (i=0; i < weather.length; i++) {
             //iterate through the returned data 
             var weatherData = weather[i];
@@ -50,25 +46,18 @@ function processWeatherData(weather) {
 
                 if (weatherData.hasOwnProperty(key)) { // check and ignore prototype objects 
                     var forecast = (key + ': ' + weatherData[key]);
-                    weatherInfo += forecast; 
+                    console.log(forecast);
                 }
             }
-
-        weatherInfo += '</div>';
-
-        temp += '<div class="temperature">'
 
             var temperature = data.main; // define temperature, specified as 'main' within the AJAX call
 
             Object.keys(temperature).forEach(function(key) { //iterate through the length of the object. Prototype allows us to ignore prototype objects
                     
                 var temperatureData = (key, temperature[key]);
+                console.log(temperatureData);
 
             });
-
-        temp += '</div>';
-
-        return weatherInfo
 
         }
     }
@@ -76,17 +65,9 @@ function processWeatherData(weather) {
 }
 
 function error(err) {
-    alert('Unable to fetch weather data, please check your internet connection and try again');
+    console.log('Unable to fetch weather data, please check your internet connection and try again');
 }
 
-
-function appendData() {
-
-    return function() {
-        console.log(weather.forecast);
-    }
-
-}
 
 (function() {
 
@@ -94,10 +75,7 @@ function appendData() {
 
     getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886')
         .then(processWeatherData(weather))
-        .then(appendData(processWeatherData))
         .catch(error);
-
-
 
 })();
 
