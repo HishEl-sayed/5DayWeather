@@ -10,9 +10,6 @@
         .then(function(processedWeatherData) {
             return appendData(processedWeatherData);
         })
-        // .then(function(msg) {
-        //     console.log(msg);
-        // })
         .catch(error); // if the request to the API fails then catch and run the error function.
 
 
@@ -61,6 +58,12 @@
 
     function appendData(inputData) {
 
+        var weatherTxt = '';
+
+        weatherTxt += '<div class="weather">'; // create string that will hold data returned
+
+        weatherTxt += '<div>' + inputData.name + '</div>';
+
         console.log('name', inputData.name);
         console.log('humidity', inputData.temperature.humidity);
         console.log('temperature', inputData.temperature.temp);
@@ -82,10 +85,12 @@
                 console.log(example);
             }
 
-        };
+        }
 
-            
-        // return 'hello world';
+        weatherTxt += '</div>';
+
+        document.getElementById('weather').innerHTML = weatherTxt;
+
 
     }
 
