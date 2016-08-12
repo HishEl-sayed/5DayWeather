@@ -10,10 +10,10 @@
         .then(function(processedWeatherData) {
             return appendData(processedWeatherData);
         })
-        .then(function(msg) {
-            console.log(msg);
-        })
-        .catch(error);
+        // .then(function(msg) {
+        //     console.log(msg);
+        // })
+        .catch(error); // if the request to the API returns an error then run the error function.
 
 
     function getData(url) {
@@ -29,7 +29,7 @@
                 if(request.readyState === 4) { 
                     if(request.status === 200) {
                         // update the HTML of the element
-                        resolve(JSON.parse(request.responseText));
+                        resolve(JSON.parse(request.responseText)); //convert the returned string to JSON data 
                     } else {
                         // otherwise display an error message
                         reject(new Error('An error occurred during your request: ' +  request.status + ' ' + request.statusText));
@@ -65,20 +65,29 @@
 
         console.log('name', inputData.name);
         console.log('humidity', inputData.temperature.humidity);
+        console.log('temperature', inputData.temperature.temp);
+        console.log('maximum temperature', inputData.temperature.temp_max);
+        // console.log('weather', inputData.weather);
+        console.log('minimum temperature', inputData.temperature.temp_min);
         console.log('pressure', inputData.temperature.pressure);
 
-        // var weather = inputData.weather;
 
-        //     var weatherData = weather[i];
+        var weather = inputData.weather;
+        var i, item, weatherTxt = '';
 
-        //     Object.keys(weatherData).forEach(function(key) { //look through weather object 
+        for (i=0; i < weather.length; i++) {
 
-        //         var forecast = (key + ': ' + weatherData[key]);
-        //         // returnItem.forecast = forecast;
-        //         console.log('forecast');
+            var weatherDesc = weather[i];
 
-        //     });
-        return 'hello world';
+            for (item in weatherDesc) {
+                var example = (item + ': ' + weatherDesc[item]);
+                console.log(example);
+            }
+
+        };
+
+            
+        // return 'hello world';
 
     }
 
@@ -94,31 +103,31 @@
 
 //         var i, item, weatherData, weatherTxt = ''; 
 //         var city = data.name;
-//         var weather = data.weather;
+        // var weather = data.weather;
 //         var returnData = [];
 //         //set the weather returned as a variable
 
 //         return;
 
-//         for (i=0; i < weather.length; i++) {
+        // for (i=0; i < weather.length; i++) {
 
-//             var returnItem = { //create the return object that I'm going to append to the DOM
-//                 temperatureData: null,
-//                 city: city,
-//                 forecast: null
-//             };
+        //     var returnItem = { //create the return object that I'm going to append to the DOM
+        //         temperatureData: null,
+        //         city: city,
+        //         forecast: null
+        //     };
 
-//             //weatherTxt += '<div class="weather">'; // create string that will hold data returned
-//             //iterate through the returned data 
-//             var weatherData = weather[i];
+        //     weatherTxt += '<div class="weather">'; // create string that will hold data returned
+        //     iterate through the returned data 
+        //     var weatherData = weather[i];
 
-//             Object.keys(weatherData).forEach(function(key) { //look through weather object 
+        //     Object.keys(weatherData).forEach(function(key) { //look through weather object 
 
-//                 var forecast = (key + ': ' + weatherData[key]);
-//                 // weatherTxt += '<div>' + forecast + '</div>';
-//                 returnItem.forecast = forecast;
+        //         var forecast = (key + ': ' + weatherData[key]);
+        //         // weatherTxt += '<div>' + forecast + '</div>';
+        //         returnItem.forecast = forecast;
 
-//             });
+        //     });
 
 //             var temperature = data.main; // define temperature, specified as 'main' within the AJAX call
 
