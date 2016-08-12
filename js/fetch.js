@@ -3,7 +3,7 @@
 
 (function() {
 
-    getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886') //grab the 
+    getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886') //grab the weather data
         .then(function(weatherData) {
             return processWeatherData(weatherData);
         })
@@ -13,7 +13,7 @@
         // .then(function(msg) {
         //     console.log(msg);
         // })
-        .catch(error); // if the request to the API returns an error then run the error function.
+        .catch(error); // if the request to the API fails then catch and run the error function.
 
 
     function getData(url) {
@@ -23,13 +23,12 @@
             var request = new XMLHttpRequest();
 
             // keep track of the request
-            request.onreadystatechange = function() {
+            request.onreadystatechange = function() { //when the request is fired
 
-                // check if the response data send back to us
-                if(request.readyState === 4) { 
-                    if(request.status === 200) {
-                        // update the HTML of the element
-                        resolve(JSON.parse(request.responseText)); //convert the returned string to JSON data 
+                // check if the response data is sent back to me
+                if(request.readyState === 4) {  // request finished and response is ready
+                    if(request.status === 200) { // response is OK
+                        resolve(JSON.parse(request.responseText)); // end the request and convert the returned string to JSON data
                     } else {
                         // otherwise display an error message
                         reject(new Error('An error occurred during your request: ' +  request.status + ' ' + request.statusText));
@@ -47,7 +46,6 @@
     // Data parsing
     function processWeatherData(weather) {
 
-        console.log(weather);
         var returnData = {
             name: weather.name,
             temperature: weather.main,
@@ -73,7 +71,7 @@
 
 
         var weather = inputData.weather;
-        var i, item, weatherTxt = '';
+        var i, item = '';
 
         for (i=0; i < weather.length; i++) {
 
