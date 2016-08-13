@@ -47,7 +47,7 @@
             name: weather.name,
             temperature: weather.main,
             weather: weather.weather
-        }
+        };
 
         return returnData;            
     }
@@ -58,21 +58,6 @@
 
     function appendData(inputData) {
 
-        var weatherTxt = '';
-
-        weatherTxt += '<div class="weather">'; // create string that will hold data returned
-
-        weatherTxt += '<div>' + inputData.name + '</div>';
-
-        console.log('name', inputData.name);
-        console.log('humidity', inputData.temperature.humidity);
-        console.log('temperature', inputData.temperature.temp);
-        console.log('maximum temperature', inputData.temperature.temp_max);
-        // console.log('weather', inputData.weather);
-        console.log('minimum temperature', inputData.temperature.temp_min);
-        console.log('pressure', inputData.temperature.pressure);
-
-
         var weather = inputData.weather;
         var i, item = '';
 
@@ -82,10 +67,27 @@
 
             for (item in weatherDesc) {
                 var example = (item + ': ' + weatherDesc[item]);
-                console.log(example);
             }
 
         }
+
+        var weatherTxt = '';
+
+        weatherTxt += '<div class="weather">'; // create string that will hold data returned
+
+        weatherTxt += '<h2 class="city-name">' + inputData.name + '</h2>';
+        weatherTxt += '<p>' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
+        weatherTxt += '<p>' + ('Temperature: ') + inputData.temperature.temp + ('°C') + '</p>';
+
+
+        console.log('name', inputData.name);
+        console.log('humidity', inputData.temperature.humidity);
+        console.log('temperature', inputData.temperature.temp);
+        console.log('maximum temperature', inputData.temperature.temp_max);
+        // console.log('weather', inputData.weather);
+        console.log('minimum temperature', inputData.temperature.temp_min);
+        console.log('pressure', inputData.temperature.pressure);
+
 
         weatherTxt += '</div>';
 
