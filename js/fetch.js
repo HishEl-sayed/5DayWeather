@@ -67,7 +67,6 @@
 
         weatherDataAppend += '<div class="weather">'; // create string that will hold data returned
 
-        weatherDataAppend += '<h2 class="city-name">' + inputData.name + '</h2>';
 
         for (i=0; i < weather.length; i++) {
 
@@ -80,8 +79,9 @@
 
         }
 
-        weatherDataAppend += '<p>' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
+        weatherDataAppend += '<h2 class="city-name">' + inputData.name + ', UK' + '</h2>';
         weatherDataAppend += '<img src=' + '"'  + iconUrl + '"' + '/>';
+        weatherDataAppend += '<p>' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
         weatherDataAppend += '<p>' + weatherDesc.description  + '</p>';
         weatherDataAppend += '<p>' + ('Temperature: ') + inputData.temperature.temp + ('°C') + '</p>';
         weatherDataAppend += '<p>' + ('Maximum temperature: ') + inputData.temperature.temp_max + ('°C') + '</p>';
