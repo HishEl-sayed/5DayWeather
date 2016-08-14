@@ -1,5 +1,19 @@
 body {
-  color: blue;
+  background-color: $seafoam;
+}
+
+.container {
+  padding: 20px;
+}
+
+header {
+  background-color: $aqua;
+}
+
+.title {
+  border-bottom: 5px outset $aqua;
+  color: $white;
+  padding: 20px;
 }
 
 p {

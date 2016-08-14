@@ -1,2 +1,16 @@
-@import '_widget.scss';
+//normalize
+
+@import '_normalize.scss';
+
+
+//colours
+
+@import '_main-colors.scss';
+
+//Page styling
+
 @import '_landing-page.scss';
+
+//Page component styling
+
+@import '_widget.scss';

@@ -55,17 +55,19 @@
     }
 
     function error(err) {
-        console.log('Unable to fetch weather data, please check your internet connection and try again');
+        document.getElementById('weather').innerHTML = '<p>' + 'Unable to fetch weather feed' + '</p>';
     }
 
-    function appendData(inputData) {
+    function appendData(inputData) { //final function writes the data gathered and returned to the DOM
 
         var weather = inputData.weather;
         var i = '';
+
+
         var weatherDataAppend = '';
 
 
-        weatherDataAppend += '<div class="weather">'; // create string that will hold data returned
+        weatherDataAppend += '<div class="weather weather__widget">'; // create string that will hold data returned
 
 
         for (i=0; i < weather.length; i++) {
@@ -88,15 +90,6 @@
         weatherDataAppend += '<p>' + ('Minimum temperature: ') + inputData.temperature.temp_min + ('°C') + '</p>';
         weatherDataAppend += '<p>' + ('Wind Speed: ') + inputData.wind.speed + (' mph') + '</p>';
 
-        console.log('hisham is awesome');
-        console.log('name', inputData.name);
-        console.log('humidity', inputData.temperature.humidity);
-        console.log('temperature', inputData.temperature.temp);
-        console.log('wind speed', inputData.wind.speed);
-        console.log('maximum temperature', inputData.temperature.temp_max);
-        console.log('minimum temperature', inputData.temperature.temp_min);
-        console.log('pressure', inputData.temperature.pressure);
-
 
         weatherDataAppend += '</div>';
 
@@ -109,62 +102,4 @@
 
 
 
-// function _processWeatherData(weather) {
-   
-//     return function(data) { //begin function to start reading the data promised back
-//         console.log(data);
-//         console.log(data.main.humidity);
-
-//         var i, item, weatherData, weatherDataAppend = '';
-//         var city = data.name;
-        // var weather = data.weather;
-//         var returnData = [];
-//         //set the weather returned as a variable
-
-//         return;
-
-        // for (i=0; i < weather.length; i++) {
-
-        //     var returnItem = { //create the return object that I'm going to append to the DOM
-        //         temperatureData: null,
-        //         city: city,
-        //         forecast: null
-        //     };
-
-        //     weatherDataAppend += '<div class="weather">'; // create string that will hold data returned
-        //     iterate through the returned data 
-        //     var weatherData = weather[i];
-
-        //     Object.keys(weatherData).forEach(function(key) { //look through weather object 
-
-        //         var forecast = (key + ': ' + weatherData[key]);
-        //         // weatherDataAppend += '<div>' + forecast + '</div>';
-        //         returnItem.forecast = forecast;
-
-        //     });
-
-//             var temperature = data.main; // define temperature, specified as 'main' within the AJAX call
-
-//             Object.keys(temperature).forEach(function(key) { //iterate through the length of the object. Prototype allows us to ignore prototype objects
-                    
-//                 var temperatureData = (key, temperature[key]);
-//                 //weatherDataAppend += '<div>' + temperatureData + '</div>';
-//                 returnItem.temperatureData = temperatureData;
-//                 console.log(temperatureData);
-
-//             });
-
-//             //weatherDataAppend += '</div>';
-
-//             returnData.push(returnItem);
-
-//         }
-//         console.log(city);
-
-//         //return returnData;
-//         appendData(returnData);
-//     }
-
-
-// }
 
