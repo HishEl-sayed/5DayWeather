@@ -1,6 +1,7 @@
 *.orig
 /node_modules
 /inlined
+/idea
 # SASS cache files
 *.scssc
 
