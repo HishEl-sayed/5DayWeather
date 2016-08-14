@@ -6,6 +6,9 @@
 
 .DS_Store
 .DS_Store?
+.iws
+workspace.xml
+tasks.xml
 ._*
 .Spotlight-V100
 .Trashes
