@@ -1,3 +1,15 @@
 h2 {
   color: purple;
 }
+
+.weather {
+
+  &__widget {
+    border: 1px solid black;
+    padding: 15px;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+
+}

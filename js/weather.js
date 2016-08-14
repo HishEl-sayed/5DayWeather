@@ -5,9 +5,6 @@
 
     'use strict';
 
-    function writeWeather() {
-        console.log(data.name);
-    }
- 
+
 
 })();

@@ -93,7 +93,7 @@
 
         weatherDataAppend += '</div>';
 
-        document.getElementById('weather').innerHTML = weatherDataAppend;
+        document.getElementById('container').innerHTML = weatherDataAppend;
 
 
     }

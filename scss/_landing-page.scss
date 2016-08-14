@@ -2,7 +2,7 @@ body {
   background-color: $seafoam;
 }
 
-.container {
+#container {
   padding: 20px;
 }
 
@@ -14,12 +14,4 @@ header {
   border-bottom: 5px outset $aqua;
   color: $white;
   padding: 20px;
-}
-
-p {
-  color: red;
-}
-
-h1 {
-  color: black;
 }
