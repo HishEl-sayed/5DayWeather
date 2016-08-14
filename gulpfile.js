@@ -3,6 +3,8 @@
 
 var gulp = require('gulp'),
     connect = require('gulp-connect');
+var sass = require('gulp-sass');
+
 
 var config = { //begins the cofiguration settings for the setup of our front end workflow
     port: 9010,
@@ -34,7 +36,14 @@ gulp.task('js', function () {
 gulp.task('watch', function () {
     gulp.watch(['./*.html']);
     gulp.watch(['./js/**/*.js'], ['js']);
+    gulp.watch('./scss/**/*.scss', ['sass']);
 
 });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('sass', function () {
+    return gulp.src('./scss/**/*.scss')
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(gulp.dest('./css'));
+});
+
+gulp.task('default', ['connect', 'watch', 'sass']);
