@@ -55,7 +55,7 @@
     }
 
     function error(err) {
-        document.getElementById('weather').innerHTML = '<p>' + 'Unable to fetch weather feed' + '</p>';
+        document.getElementById('container').innerHTML = '<p>' + 'Unable to fetch weather feed, check your internet connection' + '</p>';
     }
 
     function appendData(inputData) { //final function writes the data gathered and returned to the DOM
@@ -75,8 +75,6 @@
 
             var iconCode = weatherDesc.icon;
             var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-
-            console.log(weatherDesc.icon);
 
         }
 

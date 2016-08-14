@@ -5,7 +5,8 @@
       border: 1px solid $wave;
       border-radius: 3%;
       padding: 15px;
-      background-color: $white;
+      background: $aqua;
+      background: linear-gradient($wave, $aqua);
       width: 100%;
       display: block;
       margin: 0 auto;
@@ -17,7 +18,7 @@
     }
 
     &__information {
-      color: $gray;
+      color: $white;
 
       &__city-name {
         font-weight: normal;
