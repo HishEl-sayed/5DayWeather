@@ -79,9 +79,9 @@
         }
 
         weatherDataAppend += '<img class="weather weather__icon" src=' + '"'  + iconUrl + '"' + '/>';
+        weatherDataAppend += '<p class="weather weather__information weather__information__desc">' + weatherDesc.main  + '</p>';
         weatherDataAppend += '<h2 class="weather weather__information weather__information__city-name">' + inputData.name + ', UK' + '</h2>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
-        weatherDataAppend += '<p class="weather weather__information">' + weatherDesc.description  + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Temperature: ') + inputData.temperature.temp + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Maximum temperature: ') + inputData.temperature.temp_max + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Minimum temperature: ') + inputData.temperature.temp_min + ('°C') + '</p>';
