@@ -4,8 +4,7 @@
   "description": "A webpage built for looking at the weather over the next 5 days",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,8 @@
   },
   "homepage": "https://github.com/HishEl-sayed/5DayWeather#readme",
   "devDependencies": {
-    "http-server": "^0.9.0",
-    "webpack": "^1.13.1"
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-open": "^2.0.0"
   }
 }

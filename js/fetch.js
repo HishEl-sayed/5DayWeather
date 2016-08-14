@@ -5,6 +5,7 @@
 
     getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886') //grab the weather data
         .then(function(weatherData) {
+            console.log(weatherData);
             return processWeatherData(weatherData);
         })
         .then(function(processedWeatherData) {
@@ -46,7 +47,8 @@
         var returnData = {
             name: weather.name,
             temperature: weather.main,
-            weather: weather.weather
+            weather: weather.weather,
+            wind: weather.wind
         };
 
         return returnData;            
@@ -59,39 +61,46 @@
     function appendData(inputData) {
 
         var weather = inputData.weather;
-        var i, item = '';
+        var i = '';
+        var weatherDataAppend = '';
+
+
+        weatherDataAppend += '<div class="weather">'; // create string that will hold data returned
+
+        weatherDataAppend += '<h2 class="city-name">' + inputData.name + '</h2>';
 
         for (i=0; i < weather.length; i++) {
 
             var weatherDesc = weather[i];
 
-            for (item in weatherDesc) {
-                var example = (item + ': ' + weatherDesc[item]);
-            }
+            var iconCode = weatherDesc.icon;
+            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+
+            console.log(weatherDesc.icon);
 
         }
 
-        var weatherTxt = '';
+        weatherDataAppend += '<p>' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
+        weatherDataAppend += '<img src=' + '"'  + iconUrl + '"' + '/>';
+        weatherDataAppend += '<p>' + weatherDesc.description  + '</p>';
+        weatherDataAppend += '<p>' + ('Temperature: ') + inputData.temperature.temp + ('°C') + '</p>';
+        weatherDataAppend += '<p>' + ('Maximum temperature: ') + inputData.temperature.temp_max + ('°C') + '</p>';
+        weatherDataAppend += '<p>' + ('Minimum temperature: ') + inputData.temperature.temp_min + ('°C') + '</p>';
+        weatherDataAppend += '<p>' + ('Wind Speed: ') + inputData.wind.speed + (' mph') + '</p>';
 
-        weatherTxt += '<div class="weather">'; // create string that will hold data returned
-
-        weatherTxt += '<h2 class="city-name">' + inputData.name + '</h2>';
-        weatherTxt += '<p>' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
-        weatherTxt += '<p>' + ('Temperature: ') + inputData.temperature.temp + ('°C') + '</p>';
-
-
+        console.log('hisham is awesome');
         console.log('name', inputData.name);
         console.log('humidity', inputData.temperature.humidity);
         console.log('temperature', inputData.temperature.temp);
+        console.log('wind speed', inputData.wind.speed);
         console.log('maximum temperature', inputData.temperature.temp_max);
-        // console.log('weather', inputData.weather);
         console.log('minimum temperature', inputData.temperature.temp_min);
         console.log('pressure', inputData.temperature.pressure);
 
 
-        weatherTxt += '</div>';
+        weatherDataAppend += '</div>';
 
-        document.getElementById('weather').innerHTML = weatherTxt;
+        document.getElementById('weather').innerHTML = weatherDataAppend;
 
 
     }
@@ -106,7 +115,7 @@
 //         console.log(data);
 //         console.log(data.main.humidity);
 
-//         var i, item, weatherData, weatherTxt = ''; 
+//         var i, item, weatherData, weatherDataAppend = '';
 //         var city = data.name;
         // var weather = data.weather;
 //         var returnData = [];
@@ -122,14 +131,14 @@
         //         forecast: null
         //     };
 
-        //     weatherTxt += '<div class="weather">'; // create string that will hold data returned
+        //     weatherDataAppend += '<div class="weather">'; // create string that will hold data returned
         //     iterate through the returned data 
         //     var weatherData = weather[i];
 
         //     Object.keys(weatherData).forEach(function(key) { //look through weather object 
 
         //         var forecast = (key + ': ' + weatherData[key]);
-        //         // weatherTxt += '<div>' + forecast + '</div>';
+        //         // weatherDataAppend += '<div>' + forecast + '</div>';
         //         returnItem.forecast = forecast;
 
         //     });
@@ -139,13 +148,13 @@
 //             Object.keys(temperature).forEach(function(key) { //iterate through the length of the object. Prototype allows us to ignore prototype objects
                     
 //                 var temperatureData = (key, temperature[key]);
-//                 //weatherTxt += '<div>' + temperatureData + '</div>';
+//                 //weatherDataAppend += '<div>' + temperatureData + '</div>';
 //                 returnItem.temperatureData = temperatureData;
 //                 console.log(temperatureData);
 
 //             });
 
-//             //weatherTxt += '</div>';
+//             //weatherDataAppend += '</div>';
 
 //             returnData.push(returnItem);
 
