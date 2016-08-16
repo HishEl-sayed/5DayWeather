@@ -1,11 +1,12 @@
 'use strict';
 
+//the following IIFE fetches the 
 
 (function() {
 
     getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886') //grab the weather data
         .then(function(weatherData) {
-            console.log(weatherData);
+            // console.log(weatherData);
             return processWeatherData(weatherData);
         })
         .then(function(processedWeatherData) {
@@ -55,7 +56,7 @@
     }
 
     function error(err) {
-        document.getElementById('container').innerHTML = '<p>' + 'Unable to fetch weather feed, check your internet connection' + '</p>';
+        document.getElementById('container').innerHTML = '<h2 class="error">' + 'Unable to fetch weather feed, check your internet connection' + '</h2>';
     }
 
     function appendData(inputData) { //final function writes the data gathered and returned to the DOM
@@ -68,25 +69,23 @@
 
         weatherDataAppend += '<div class="weather weather__widget">'; // create string that will hold data returned
 
-
         for (i=0; i < weather.length; i++) {
 
             var weatherDesc = weather[i];
 
             var iconCode = weatherDesc.icon;
-            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-
+            var weatherIcon = '<span class=weather-icon-' + iconCode + '>' + '</span>' ;
+            console.log(weatherIcon);
         }
 
-        weatherDataAppend += '<img class="weather weather__icon" src=' + '"'  + iconUrl + '"' + '/>';
-        weatherDataAppend += '<p class="weather weather__information weather__information__desc">' + weatherDesc.main  + '</p>';
+        // weatherDataAppend += '<img class="weather weather__icon"+ iconUrl + '"' + '/>';
+        weatherDataAppend += '<p class="weather weather__information weather__information__desc">' + weatherIcon + weatherDesc.main  + '</p>';
         weatherDataAppend += '<h2 class="weather weather__information weather__information__city-name">' + inputData.name + ', UK' + '</h2>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Temperature: ') + inputData.temperature.temp + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Maximum temperature: ') + inputData.temperature.temp_max + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Minimum temperature: ') + inputData.temperature.temp_min + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Wind Speed: ') + inputData.wind.speed + (' mph') + '</p>';
-
 
         weatherDataAppend += '</div>';
 
@@ -96,7 +95,3 @@
     }
 
 })();
-
-
-
-

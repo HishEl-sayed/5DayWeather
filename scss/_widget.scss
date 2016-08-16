@@ -51,3 +51,15 @@
   }
 
 }
+
+@media screen and (min-width: 1200px) {
+
+  .weather {
+
+    &__widget {
+      width: 30%;
+    }
+
+  }
+
+}
