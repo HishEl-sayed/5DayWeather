@@ -80,9 +80,9 @@
 
         // weatherDataAppend += '<img class="weather weather__icon"+ iconUrl + '"' + '/>';
         weatherDataAppend += '<p class="weather weather__information weather__information__desc">' + weatherIcon + weatherDesc.main  + '</p>';
+        weatherDataAppend += '<p class="weather weather__information weather__information__temperature">' + inputData.temperature.temp + ('°C') + '</p>';
         weatherDataAppend += '<h2 class="weather weather__information weather__information__city-name">' + inputData.name + ', UK' + '</h2>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
-        weatherDataAppend += '<p class="weather weather__information">' + ('Temperature: ') + inputData.temperature.temp + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Maximum temperature: ') + inputData.temperature.temp_max + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Minimum temperature: ') + inputData.temperature.temp_min + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Wind Speed: ') + inputData.wind.speed + (' mph') + '</p>';
@@ -90,6 +90,8 @@
         weatherDataAppend += '</div>';
 
         document.getElementById('container').innerHTML = weatherDataAppend;
+
+        return(console.log('hishahm'));
 
 
     }
