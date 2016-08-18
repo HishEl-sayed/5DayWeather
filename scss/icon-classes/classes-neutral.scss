@@ -2,22 +2,22 @@
 	font-family: '#{$wi-font-family}';
 	font-size: 1.5em;
 	padding-right: 10px;
-	display: inline;
 	color: $white;
 }
 
 .weather-icon-windy:before {
-	conent: $strong-wind;
+	content: $strong-wind;
+	font-family: '#{$wi-font-family}';
 	@extend %icon-styling;
 }
 
 .weather-icon-alien:before {
-	conent: $alien;
+	content: $alien;
 	@extend %icon-styling;
 }
 
 .weather-icon-celsius:before {
-	conent: $celsius;
+	content: $celsius;
 	@extend %icon-styling;
 }
 .weather-icon-fahrenheit:before {
