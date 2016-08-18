@@ -1,6 +1,7 @@
 'use strict';
 
-//the following IIFE fetches the 
+//the following IIFE fetches the data from the open weather API and appends the resulting data to the users browser
+
 
 (function() {
 
@@ -43,8 +44,8 @@
     }
 
     // Data parsing
-    function processWeatherData(weather) {
-
+    function processWeatherData(weather) { //begins the function for processing the weather data 
+            console.log(weather);
         var returnData = {
             name: weather.name,
             temperature: weather.main,
@@ -81,17 +82,15 @@
         // weatherDataAppend += '<img class="weather weather__icon"+ iconUrl + '"' + '/>';
         weatherDataAppend += '<p class="weather weather__information weather__information__desc">' + weatherIcon + weatherDesc.main  + '</p>';
         weatherDataAppend += '<p class="weather weather__information weather__information__temperature">' + inputData.temperature.temp.toFixed(0) + ('°C') + '</p>';
-        weatherDataAppend += '<h2 class="weather weather__information weather__information__city-name">' + inputData.name + ', UK' + '</h2>';
-        weatherDataAppend += '<p class="weather weather__information">' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
+        weatherDataAppend += '<h2 class="weather weather__information weather__information__city-name">' + inputData.name + (', UK') + '</h2>';
+        weatherDataAppend += '<p class="weather weather__information weather__information__wind">' + '<span class="weather-icon-windy"></span>' + inputData.wind.speed + (' mph') + '</p>';
+        weatherDataAppend += '<p class="weather weather__information weather__information__humidity">' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Maximum temperature: ') + inputData.temperature.temp_max.toFixed(0) + ('°C') + '</p>';
         weatherDataAppend += '<p class="weather weather__information">' + ('Minimum temperature: ') + inputData.temperature.temp_min.toFixed(0) + ('°C') + '</p>';
-        weatherDataAppend += '<p class="weather weather__information">' + ('Wind Speed: ') + inputData.wind.speed + (' mph') + '</p>';
 
         weatherDataAppend += '</div>';
 
         document.getElementById('container').innerHTML = weatherDataAppend;
-
-        return(console.log('hishahm'));
 
 
     }

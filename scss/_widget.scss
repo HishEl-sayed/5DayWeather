@@ -20,42 +20,76 @@
 
     &__information {
       color: $white;
+      font-size: 1.2em;
 
       &__city-name {
         font-weight: normal;
         border-bottom: solid 1px $white;
         margin: 0;
-        padding: 0 0 20px 0;
+        display: inline-block;
+        padding: 5px 0 20px 0;
         font-size: 2em;
         text-align: left;
       }
 
       &__temperature {
-        display: inline-block;
+        display: block;
         width: 50%;
+        padding-bottom: 10px;
+        margin: 0;
         font-size: 2em;
-        text-align: center;
+      }
+
+      &__humidity {
+
       }
 
       &__desc {
-        display: inline-block;
-        border-right: 1px solid $white;
+        display: block;
         width: 50%;
-        text-align: center;
         font-size: 1.5em;
       }
-
+      
+      &__wind {
+        margin-top: 0;
+        display: inline-block;
+        font-size: 1.3em;
+      }
     }
 
   }
 
 
-@media screen and (min-width: 670px) {
+@media screen and (min-width: 570px) {
+  .weather {
+    &__widget {
+      width: 60%;
+    }
+  }
+}
+
+
+@media screen and (min-width: 860px) {
 
   .weather {
 
     &__widget {
       width: 60%;
+    }
+
+    &__information {
+
+      &__temperature {
+        display: inline-block;
+        border-left: 1px solid $white;
+        padding-left: 25px;
+        line-height: 4em;
+      }
+
+      &__desc {
+        display: inline-block;
+      }
+
     }
 
   }
@@ -66,9 +100,19 @@
   .weather {
 
     &__widget {
-      width: 50%;
+      width: 40%;
     }
 
+  }
+
+}
+
+@media screen and (min-width: 1600px) {
+
+  .weather {
+    &__widget {
+      width: 30%;
+    }
   }
 
 }

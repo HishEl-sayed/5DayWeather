@@ -1,40 +1,107 @@
-.wi-cloud:before {content: $cloud;}
-.wi-cloudy:before {content: $cloudy;}
-.wi-cloudy-gusts:before {content: $cloudy-gusts;}
-.wi-cloudy-windy:before {content: $cloudy-windy;}
-.wi-fog:before {content: $fog;}
-.wi-hail:before {content: $hail;}
-.wi-rain:before {content: $rain;}
-.wi-rain-mix:before {content: $rain-mix;}
-.wi-rain-wind:before {content: $rain-wind;}
-.wi-showers:before {content: $showers;}
-.wi-sleet:before {content: $sleet;}
-.wi-snow:before {content: $snow;}
-.wi-sprinkle:before {content: $sprinkle;}
-.wi-storm-showers:before {content: $storm-showers;}
-.wi-thunderstorm:before {content: $thunderstorm;}
-.wi-snow-wind:before {content: $snow-wind;}
-.wi-snow:before {content: $snow;}
-.wi-smog:before {content: $smog;}
-.wi-smoke:before {content: $smoke;}
-.wi-lightning:before {content: $lightning;}
-.wi-raindrops:before {content: $raindrops;}
-.wi-raindrop:before {content: $raindrop;}
-.wi-dust:before {content: $dust;}
-.wi-snowflake-cold:before {content: $snowflake-cold;}
-.wi-windy:before {content: $windy;}
-.wi-strong-wind:before {content: $strong-wind;}
-.wi-sandstorm:before {content: $sandstorm;}
-.wi-earthquake:before {content: $earthquake;}
-.wi-fire:before {content: $fire;}
-.wi-flood:before {content: $flood;}
-.wi-meteor:before {content: $meteor;}
-.wi-tsunami:before {content: $tsunami;}
-.wi-volcano:before {content: $volcano;}
-.wi-hurricane:before {content: $hurricane;}
-.wi-tornado:before {content: $tornado;}
-.wi-small-craft-advisory:before {content: $small-craft-advisory;}
-.wi-gale-warning:before {content: $gale-warning;}
-.wi-storm-warning:before {content: $storm-warning;}
-.wi-hurricane-warning:before {content: $hurricane-warning;}
-.wi-wind-direction:before {content: $wind-direction;}
+%icon-styling {
+	font-family: '#{$wi-font-family}';
+	font-size: 1.5em;
+	padding-right: 10px;
+	display: inline;
+	color: $white;
+}
+
+.weather-icon-windy:before {
+	conent: $strong-wind;
+	@extend %icon-styling;
+}
+
+.weather-icon-alien:before {
+	conent: $alien;
+	@extend %icon-styling;
+}
+
+.weather-icon-celsius:before {
+	conent: $celsius;
+	@extend %icon-styling;
+}
+.weather-icon-fahrenheit:before {
+	content: $fahrenheit;
+	@extend %icon-styling;
+}
+.weather-icon-degrees:before {
+	content: $degrees;
+	@extend %icon-styling;
+}
+.weather-icon-thermometer:before {
+	content: $thermometer;
+	@extend %icon-styling;
+}
+.weather-icon-thermometer-exterior:before {
+	content: $thermometer-exterior;
+	@extend %icon-styling;
+}
+.weather-icon-thermometer-internal:before {
+	content: $thermometer-internal;
+	@extend %icon-styling;
+}
+.weather-icon-cloud-down:before {
+	content: $cloud-down;
+	@extend %icon-styling;
+}
+.weather-icon-cloud-up:before {
+	content: $cloud-up;
+	@extend %icon-styling;
+}
+.weather-icon-cloud-refresh:before {
+	content: $cloud-refresh;
+	@extend %icon-styling;
+}
+.weather-icon-horizon:before {
+	content: $horizon;
+	@extend %icon-styling;
+}
+.weather-icon-horizon-alt:before {
+	content: $horizon-alt;
+	@extend %icon-styling;
+}
+.weather-icon-sunrise:before {
+	content: $sunrise;
+	@extend %icon-styling;
+}
+.weather-icon-sunset:before {
+	content: $sunset;
+	@extend %icon-styling;
+}
+.weather-icon-moonrise:before {
+	content: $moonrise;
+	@extend %icon-styling;
+}
+.weather-icon-moonset:before {
+	content: $moonset;
+	@extend %icon-styling;
+}
+.weather-icon-refresh:before {
+	content: $refresh;
+	@extend %icon-styling;
+}
+.weather-icon-refresh-alt:before {
+	content: $refresh-alt;
+	@extend %icon-styling;
+}
+.weather-icon-umbrella:before {
+	content: $umbrella;
+	@extend %icon-styling;
+}
+.weather-icon-barometer:before {
+	content: $barometer;
+	@extend %icon-styling;
+}
+.weather-icon-humidity:before {
+	content: $humidity;
+	pading-left: 2px;
+	@extend %icon-styling;
+}
+.weather-icon-na:before {
+	content: $na;
+	@extend %icon-styling;
+}
+.weather-icon-train:before {
+	content: $train;
+	@extend %icon-styling;
+}

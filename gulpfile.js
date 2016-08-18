@@ -43,7 +43,8 @@ gulp.task('watch', function () {
 gulp.task('sass', function () {
     return gulp.src('./scss/**/main.scss')
         .pipe(sass.sync().on('error', sass.logError))
-        .pipe(gulp.dest('./css'));
+        .pipe(gulp.dest('./css'))
+        .pipe(connect.reload());
 });
 
 gulp.task('default', ['connect', 'watch', 'sass']);
