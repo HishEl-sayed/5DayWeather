@@ -24,13 +24,17 @@
 
       &__city-name {
         font-weight: normal;
-        border-bottom: solid 1px $white;
         margin: 0;
         width: 60%;
         display: inline-block;
-        padding: 5px 0 20px 0;
         font-size: 2em;
         text-align: left;
+      }
+
+      &__date {
+        border-bottom: solid 1px $white;
+        padding: 0 0 20px 0;
+        margin: 0;
       }
 
       &__temperature {
