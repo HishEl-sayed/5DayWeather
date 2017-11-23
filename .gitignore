@@ -1,15 +1,12 @@
 *.orig
 /node_modules
 /inlined
-/idea
 # SASS cache files
 *.scssc
 
 .DS_Store
 .DS_Store?
 .iws
-workspace.xml
-tasks.xml
 ._*
 .Spotlight-V100
 .Trashes

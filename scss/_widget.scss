@@ -1,122 +1,92 @@
 
-  .weather {
-
-    &__widget {
-      border: 1px solid $wave;
-      border-radius: 3%;
-      padding: 30px;
-      background: $aqua;
-      background: linear-gradient($wave, $aqua);
-      width: 100%;
-      display: block;
-      margin: 0 auto;
-    }
-
-    &__icon {
-      display: inline-block;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    &__information {
-      color: $white;
-      font-size: 1.2em;
-
-      &__city-name {
-        font-weight: normal;
-        margin: 0;
-        width: 60%;
-        display: inline-block;
-        font-size: 2em;
-        text-align: left;
-      }
-
-      &__date {
-        border-bottom: solid 1px $white;
-        padding: 0 0 20px 0;
-        margin: 0;
-      }
-
-      &__temperature {
-        display: block;
-        width: 50%;
-        padding-bottom: 10px;
-        margin: 0;
-        font-size: 2em;
-      }
-
-      &__humidity {
-
-      }
-
-      &__desc {
-        display: block;
-        width: 50%;
-        font-size: 1.5em;
-      }
-      
-      &__wind {
-        margin-top: 0;
-        display: inline-block;
-        font-size: 1.3em;
-      }
-    }
-
+.weather {
+  color: $white;
+  &__widget {
+    border: 1px solid $wave;
+    border-radius: 3%;
+    padding: 30px;
+    background: $aqua;
+    background: linear-gradient($wave, $aqua);
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  &__icon {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__information {
+    color: $white;
+    font-size: 1.2em;
+  }
+  &__city-name {
+    font-weight: normal;
+    margin: 0;
+    width: 60%;
+    display: inline-block;
+    font-size: 2em;
+    text-align: left;
+  }
+  &__date {
+    border-bottom: solid 1px $white;
+    padding: 0 0 20px 0;
+    margin: 0;
+  }
+  &__temperature {
+    display: block;
+    width: 50%;
+    padding-bottom: 10px;
+    margin: 0;
+    font-size: 2em;
+  }
+  &__desc {
+    display: block;
+    width: 50%;
+    font-size: 1.5em;
+  }
+  &__wind {
+    margin-top: 0;
+    display: inline-block;
+    font-size: 1.3em;
   }
 
+}
 
 @media screen and (min-width: 570px) {
+
   .weather {
     &__widget {
       width: 60%;
     }
   }
+
 }
 
 
 @media screen and (min-width: 860px) {
 
   .weather {
-
     &__widget {
       width: 60%;
     }
-
-    &__information {
-
-      &__temperature {
-        display: inline-block;
-        border-left: 1px solid $white;
-        padding-left: 25px;
-        line-height: 4em;
-      }
-
-      &__desc {
-        display: inline-block;
-      }
-
+    &__temperature {
+      display: inline-block;
+      border-left: 1px solid $white;
+      padding-left: 25px;
+      line-height: 4em;
     }
-
+    &__desc {
+      display: inline-block;
+    }
   }
+
 }
 
 @media screen and (min-width: 1200px) {
-
   .weather {
-
     &__widget {
       width: 40%;
-    }
-
-  }
-
-}
-
-@media screen and (min-width: 1600px) {
-
-  .weather {
-    &__widget {
-      width: 30%;
     }
   }
 
