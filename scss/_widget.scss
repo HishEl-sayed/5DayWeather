@@ -35,15 +35,13 @@
     margin: 0;
   }
   &__temperature {
-    display: block;
-    width: 50%;
-    padding-bottom: 10px;
+    width: 100%;
     margin: 0;
     font-size: 2em;
   }
   &__desc {
     display: inline-block;
-    width: 50%;
+    width: 100%;
     font-size: 1.5em;
   }
   &__wind {
@@ -51,11 +49,21 @@
     display: inline-block;
     font-size: 1.3em;
   }
-  &__temperature {
-    display: inline-block;
-    border-left: 1px solid $white;
-    padding-left: 25px;
-    line-height: 4em;
+
+  @media screen and (min-width: 620px) {
+    .weather {
+      &__desc {
+        display: inline-block;
+        width: 50%;
+      }
+      &__temperature {
+        display: inline-block;
+        border-left: 1px solid $white;
+        padding-left: 20px;
+        line-height: 4em;
+        width: 50%;
+      }
+    }
   }
 
 }
