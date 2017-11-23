@@ -6,14 +6,12 @@
 
     getData('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=07c942ac99d05229807385fde0045886') //grab the weather data
         .then(function(weatherData) {
-            // console.log(weatherData);
             return processWeatherData(weatherData);
         })
         .then(function(processedWeatherData) {
             return appendData(processedWeatherData);
         })
         .catch(error); // if the request to the API fails then catch and run the error function.
-
 
     function getData(url) {
 
@@ -63,28 +61,23 @@
         var weather = inputData.weather;
         var i = '';
         var weatherDataAppend = '';
-        var now = new Date();
-
-        weatherDataAppend += '<div class="weather weather__widget">'; 
+        var currentDate = new Date().toUTCString();
 
         for (i=0; i < weather.length; i++) {
-
             var weatherDesc = weather[i];
-
             var iconCode = weatherDesc.icon;
             var weatherIcon = '<span class=weather-icon-' + iconCode + '>' + '</span>' ;
         }
 
-        // weatherDataAppend += '<img class="weather weather__icon"' + 'src=' + iconUrl />;
-        weatherDataAppend += '<p class="weather__desc">' + weatherIcon + weatherDesc.main  + '</p>';
-        weatherDataAppend += '<p class="weather__information__temperature">' + inputData.temperature.temp.toFixed(0) + ('°C') + '</p>';
-        weatherDataAppend += '<h2 class="weather__city-name">' + inputData.name + (', UK') + '</h2>';
-        weatherDataAppend += '<p class="weather__wind">' + '<span class="weather-icon-windy"></span>' + inputData.wind.speed + (' mph') + '</p>';
-        weatherDataAppend += '<p class="weather__date">' + now + '</p>';
-        weatherDataAppend += '<p class="weather__humidity">' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
-        weatherDataAppend += '<p class="weather">' + ('Maximum temperature: ') + inputData.temperature.temp_max.toFixed(0) + ('°C') + '</p>';
-        weatherDataAppend += '<p class="weather">' + ('Minimum temperature: ') + inputData.temperature.temp_min.toFixed(0) + ('°C') + '</p>';
-
+        weatherDataAppend += '<div class="weather weather__widget">'; 
+            weatherDataAppend += '<p class="weather__desc">' + weatherIcon + weatherDesc.main  + '</p>';
+            weatherDataAppend += '<p class="weather__temperature">' + inputData.temperature.temp.toFixed(0) + ('°C') + '</p>';
+            weatherDataAppend += '<h2 class="weather__city-name">' + inputData.name + (', UK') + '</h2>';
+            weatherDataAppend += '<p class="weather__wind">' + '<span class="weather-icon-windy"></span>' + inputData.wind.speed + (' mph') + '</p>';
+            weatherDataAppend += '<p class="weather__date">' + currentDate + '</p>';
+            weatherDataAppend += '<p class="weather__humidity">' + ('Humidity: ') + inputData.temperature.humidity + ('%') + '</p>';
+            weatherDataAppend += '<p class="weather">' + ('Maximum temperature: ') + inputData.temperature.temp_max.toFixed(0) + ('°C') + '</p>';
+            weatherDataAppend += '<p class="weather">' + ('Minimum temperature: ') + inputData.temperature.temp_min.toFixed(0) + ('°C') + '</p>';
         weatherDataAppend += '</div>';
 
         document.getElementById('container').innerHTML = weatherDataAppend;

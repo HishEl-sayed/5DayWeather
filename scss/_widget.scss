@@ -1,4 +1,3 @@
-
 .weather {
   color: $white;
   &__widget {
@@ -8,6 +7,7 @@
     background: $aqua;
     background: linear-gradient($wave, $aqua);
     width: 100%;
+    max-width: 500px;
     display: block;
     margin: 0 auto;
   }
@@ -21,6 +21,7 @@
     font-size: 1.2em;
   }
   &__city-name {
+    padding-top: 20px;
     font-weight: normal;
     margin: 0;
     width: 60%;
@@ -41,7 +42,7 @@
     font-size: 2em;
   }
   &__desc {
-    display: block;
+    display: inline-block;
     width: 50%;
     font-size: 1.5em;
   }
@@ -50,44 +51,11 @@
     display: inline-block;
     font-size: 1.3em;
   }
-
-}
-
-@media screen and (min-width: 570px) {
-
-  .weather {
-    &__widget {
-      width: 60%;
-    }
-  }
-
-}
-
-
-@media screen and (min-width: 860px) {
-
-  .weather {
-    &__widget {
-      width: 60%;
-    }
-    &__temperature {
-      display: inline-block;
-      border-left: 1px solid $white;
-      padding-left: 25px;
-      line-height: 4em;
-    }
-    &__desc {
-      display: inline-block;
-    }
-  }
-
-}
-
-@media screen and (min-width: 1200px) {
-  .weather {
-    &__widget {
-      width: 40%;
-    }
+  &__temperature {
+    display: inline-block;
+    border-left: 1px solid $white;
+    padding-left: 25px;
+    line-height: 4em;
   }
 
 }
